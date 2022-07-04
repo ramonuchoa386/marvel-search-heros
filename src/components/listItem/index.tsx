@@ -69,9 +69,7 @@ const ListItem = (props: IListItem) => {
 	return (
 		<S.ItemWrapper {...args}>
 			<S.LinkToHero to={`/hero/${id}`}>
-				<S.ThumbnailWrapper>
-					<S.HeroThumbnail src={`${thumbnail}/portrait_incredible.jpg`} />
-				</S.ThumbnailWrapper>
+				<S.HeroThumbnail src={`${thumbnail}/standard_fantastic.jpg`} />
 			</S.LinkToHero>
 
 			<S.HeroNameWrapper>
