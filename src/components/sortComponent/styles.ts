@@ -10,6 +10,12 @@ export const Wrapper = styled.section`
 export const ParamIcon = styled.img`
 	margin-right: 4px;
 	display: none;
+
+	@media only screen and (min-width: 768px) {
+		display: block;
+		width: auto;
+		height: 16px;
+	}
 `;
 
 export const ParamWrapper = styled.div`
@@ -20,6 +26,10 @@ export const ParamWrapper = styled.div`
 export const ParamDesc = styled.p`
 	font-size: 0.725rem;
 	color: ${(props) => props.theme.colors.red};
+
+	@media only screen and (min-width: 768px) {
+		font-size: 1rem;
+	}
 `;
 
 export const SwitchWrapper = styled.div<{ toggle: boolean }>`
