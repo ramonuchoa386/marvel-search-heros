@@ -93,18 +93,20 @@ const HomePage = () => {
 				))}
 			</S.HerosList>
 
-			<button
-				type='button'
-				onClick={() => setListOffset(listOffset - limit)}
-				disabled={listOffset === 0}>
-				voltar
-			</button>
-			<button
-				type='button'
-				onClick={() => setListOffset(listOffset + limit)}
-				disabled={lastPage < limit}>
-				avançar
-			</button>
+			<div style={{ width: 'fit-content', margin: '0 auto' }}>
+				<S.PaginateBtn
+					type='button'
+					onClick={() => setListOffset(listOffset - limit)}
+					disabled={listOffset === 0}>
+					voltar
+				</S.PaginateBtn>
+				<S.PaginateBtn
+					type='button'
+					onClick={() => setListOffset(listOffset + limit)}
+					disabled={lastPage < limit}>
+					avançar
+				</S.PaginateBtn>
+			</div>
 		</Container>
 	);
 };

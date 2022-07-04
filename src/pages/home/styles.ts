@@ -36,3 +36,26 @@ export const FlexContainer = styled.div`
 		align-items: center;
 	}
 `;
+
+export const PaginateBtn = styled.button`
+	border: none;
+	background-color: ${(props) => props.theme.colors.pink};
+	text-transform: uppercase;
+	padding: 4px 16px;
+	margin: 16px;
+	font-weight: bold;
+	font-size: 0.725rem;
+	color: ${(props) => props.theme.colors.red};
+	transition: all 500ms ease;
+
+	&:hover {
+		transition: all 300ms ease;
+		background-color: ${(props) => props.theme.colors.red};
+		color: white;
+	}
+
+	&:disabled {
+		background-color: ${(props) => props.theme.colors.lightGrey};
+		color: white;
+	}
+`;
