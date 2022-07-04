@@ -44,13 +44,19 @@ export const HeroFeats = styled.ul`
 	li {
 		width: 45%;
 
-		h3 {
+		strong {
 			margin-bottom: 8px;
 		}
 		div {
 			display: flex;
-			justify-content: space-between;
-			align-items: flex-start;
+			justify-content: flex-start;
+			align-items: center;
+
+			img {
+				width: auto;
+				height: 16px;
+				margin-right: 8px;
+			}
 		}
 	}
 `;
@@ -90,5 +96,22 @@ export const FlexContainer = styled.div`
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+	}
+`;
+
+export const HeroLastComics = styled.ul`
+	list-style-type: none;
+	width: 100%;
+
+	@media only screen and (min-width: 768px) {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	li {
+		@media only screen and (min-width: 768px) {
+			max-width: 250px;
+			margin-right: 24px;
+		}
 	}
 `;

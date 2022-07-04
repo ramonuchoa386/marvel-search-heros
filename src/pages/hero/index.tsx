@@ -13,7 +13,7 @@ interface IHero {
 	id?: number;
 	name?: string;
 	description?: string;
-	modified?: Date;
+	modified?: string;
 	resourceURI?: string;
 	urls?: any[];
 	thumbnail?: any;
@@ -27,6 +27,38 @@ const HeroPage = () => {
 	const { id } = useParams();
 	const [heroInfo, setHeroInfo] = React.useState<IHero>();
 	const [isFav, setIsFav] = React.useState(false);
+
+	const dateFormat = () => {
+		let date;
+
+		const monthNames = [
+			'jan.',
+			'fev.',
+			'mar.',
+			'abr.',
+			'mai.',
+			'jun.',
+			'jul.',
+			'ago.',
+			'set.',
+			'out.',
+			'nov.',
+			'dez.',
+		];
+
+		if (heroInfo?.modified !== undefined) {
+			const rawDate = new Date(heroInfo?.modified);
+
+			date =
+				rawDate.getDate() +
+				' ' +
+				monthNames[rawDate.getMonth()] +
+				' ' +
+				rawDate.getFullYear();
+		}
+
+		return date;
+	};
 
 	React.useLayoutEffect(() => {
 		const favList = localStorage.getItem('fav-marvel-heros');
@@ -68,20 +100,27 @@ const HeroPage = () => {
 						<p>{heroInfo?.description}</p>
 						<S.HeroFeats>
 							<li>
-								<h3>Quadrinhos</h3>
+								<strong>Quadrinhos</strong>
 								<div>
 									<img src={comicsIcon} />
 									<p>{heroInfo?.comics.available}</p>
 								</div>
 							</li>
 							<li>
-								<h3>Filmes</h3>
+								<strong>Filmes</strong>
 								<div>
 									<img src={movieIcon} />
 									<p>{heroInfo?.series.available}</p>
 								</div>
 							</li>
 						</S.HeroFeats>
+						<div style={{ marginTop: '24px' }}>
+							<strong>Rating:</strong>
+						</div>
+						<p style={{ marginTop: '24px' }}>
+							<strong>Último quadrinho: </strong>
+							{dateFormat()}
+						</p>
 					</section>
 					<S.HeroImages>
 						<img src={`${heroInfo?.thumbnail.path}/portrait_incredible.jpg`} />
@@ -89,6 +128,16 @@ const HeroPage = () => {
 					</S.HeroImages>
 				</S.HeroInfoContainer>
 				<h2>Ultimos Lançamentos</h2>
+				<S.HeroLastComics>
+					{heroInfo?.series.items.map((item: { name: string }, key: number) => {
+						return (
+							<li key={key}>
+								<img src='not-found' />
+								<p>{item.name}</p>
+							</li>
+						);
+					})}
+				</S.HeroLastComics>
 			</main>
 		</Container>
 	);
