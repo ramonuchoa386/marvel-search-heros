@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 const Container = styled.section`
-	padding: 20px 20px 0;
+	padding: 20px;
+	border-bottom: 20px solid ${(props) => props.theme.colors.red};
 
 	@media only screen and (min-width: 768px) {
 		padding-left: 56px;
@@ -9,8 +10,7 @@ const Container = styled.section`
 	}
 
 	@media only screen and (min-width: 1280px) {
-		padding-left: 130px;
-		padding-right: 130px;
+		padding: 32px 128px 64px;
 	}
 `;
 
